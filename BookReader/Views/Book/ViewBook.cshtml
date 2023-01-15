@@ -1,0 +1,6 @@
+﻿@using BookReader.Models.Book;
+@model ViewBookViewModel
+
+@Html.DisplayForModel()
+
+<a asp-controller="Author" asp-action="ViewAuthor" asp-route-id="@Model.AuthorId">Author</a>

@@ -1,0 +1,34 @@
+﻿@using BookReader.Models.Book;
+@model ViewAllBookViewModel
+
+<table>
+    <thead>
+        <tr>
+            <th>
+                Id
+            </th>
+            <th>
+                Name
+            </th>
+            <th>
+                Link
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var book in Model)
+        {
+            <tr>
+                <td>
+                    @book.Id
+                </td>
+                <td>
+                    @book.Name
+                </td>
+                <td>
+                    <a asp-controller="Book" asp-action="ViewBook" asp-route-id="@book.Id">detail</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
