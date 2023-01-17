@@ -8,6 +8,8 @@
 
   <ItemGroup>
     <Folder Include="Author\Request\" />
+    <Folder Include="Book\Request\" />
+    <Folder Include="Page\Request\" />
   </ItemGroup>
 
 </Project>

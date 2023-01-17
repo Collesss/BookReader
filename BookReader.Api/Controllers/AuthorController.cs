@@ -24,16 +24,17 @@ namespace BookReader.Api.Controllers
         }
 
 
+        [HttpGet("")]
         public async Task<ActionResult<IEnumerable<AuthorResponseDto>>> Authors(CancellationToken cancellationToken)
         {
             try
             {
-                IEnumerable<AuthorEntity> authorEntitiy = await _authorRepository.GetAll(cancellationToken);
+                IEnumerable<AuthorEntity> authorEntities = await _authorRepository.GetAll(cancellationToken);
 
-                IEnumerable<AuthorResponseDto> authorDto = 
-                    _mapper.Map<IEnumerable<AuthorEntity>, IEnumerable<AuthorResponseDto>>(authorEntitiy);
+                IEnumerable<AuthorResponseDto> authorDtos = 
+                    _mapper.Map<IEnumerable<AuthorEntity>, IEnumerable<AuthorResponseDto>>(authorEntities);
 
-                return Ok(authorDto);
+                return Ok(authorDtos);
             }
             catch (OperationCanceledException)
             {
@@ -42,7 +43,29 @@ namespace BookReader.Api.Controllers
             catch (RepositoryException e)
             {
                 _logger.LogError(e, $"Error get authors.");
-                return BadRequest($"Error get authors.");
+                return StatusCode(StatusCodes.Status500InternalServerError, $"InternalServerError get authors.");
+            }
+        }
+
+        [HttpGet("{id}")]
+        public async Task<ActionResult<AuthorResponseDto>> Author([FromRoute]int id, CancellationToken cancellationToken)
+        {
+            try
+            {
+                AuthorEntity authorEntity = await _authorRepository.GetById(id, cancellationToken);
+
+                AuthorResponseDto authorResponseDto = _mapper.Map<AuthorEntity, AuthorResponseDto>(authorEntity);
+
+                return authorResponseDto is null ? NotFound(id) : Ok(authorResponseDto);
+            }
+            catch(OperationCanceledException)
+            {
+                throw;
+            }
+            catch (RepositoryException e)
+            {
+                _logger.LogError(e, $"Error get author with id: {id}.");
+                return StatusCode(StatusCodes.Status500InternalServerError, $"InternalServerError get author with id: {id}.");
             }
         }
     }
