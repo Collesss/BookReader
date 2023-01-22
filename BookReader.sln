@@ -11,7 +11,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookReader.Api.Repository",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookReader.Api.Repository.RepositoryDb", "BookReader.Api.Repository.RepositoryDb\BookReader.Api.Repository.RepositoryDb.csproj", "{887199BF-4E7F-44A0-8A7C-062C0EEB5F92}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookReader.Api.Dto", "BookReader.Api.Dto\BookReader.Api.Dto.csproj", "{5FC8378C-CF2D-4777-AB8B-E0DEA44F01E8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookReader.Api.Dto", "BookReader.Api.Dto\BookReader.Api.Dto.csproj", "{5FC8378C-CF2D-4777-AB8B-E0DEA44F01E8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookReader.Api.BookReaderHttpClient", "BookReader.Api.BookReaderHttpClient\BookReader.Api.BookReaderHttpClient.csproj", "{5FDAAC31-AF69-4995-A807-1C6E59F60DD3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookReader.Api.BookReaderHttpClient.BaseImplementation", "BookReader.Api.BookReaderHttpClient.BaseImplementation\BookReader.Api.BookReaderHttpClient.BaseImplementation.csproj", "{0DAC2313-25C2-4E84-B2D4-E0F63F9533BF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +43,14 @@ Global
 		{5FC8378C-CF2D-4777-AB8B-E0DEA44F01E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5FC8378C-CF2D-4777-AB8B-E0DEA44F01E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5FC8378C-CF2D-4777-AB8B-E0DEA44F01E8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5FDAAC31-AF69-4995-A807-1C6E59F60DD3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5FDAAC31-AF69-4995-A807-1C6E59F60DD3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5FDAAC31-AF69-4995-A807-1C6E59F60DD3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5FDAAC31-AF69-4995-A807-1C6E59F60DD3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0DAC2313-25C2-4E84-B2D4-E0F63F9533BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0DAC2313-25C2-4E84-B2D4-E0F63F9533BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0DAC2313-25C2-4E84-B2D4-E0F63F9533BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0DAC2313-25C2-4E84-B2D4-E0F63F9533BF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,0 +1,18 @@
+﻿@using BookReader.Models.Page;
+@model ViewPageViewModel
+
+<div>@Model.Content</div>
+
+<hr/>
+
+<div style="text-align: center;">
+    @if (@Model.Number != 1)
+    {
+        <a asp-controller="Page" asp-action="ViewPage" asp-route-bookId="@Model.BookId" asp-route-number="@(Model.Number - 1)">Prev</a>
+    }
+    <span>@(Model.Number)/@Model.PageCount</span>
+    @if (@Model.Number != @Model.PageCount)
+    {
+        <a asp-controller="Page" asp-action="ViewPage" asp-route-bookId="@Model.BookId" asp-route-number="@(Model.Number + 1)">Next</a>
+    }
+</div>

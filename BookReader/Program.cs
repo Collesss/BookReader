@@ -1,8 +1,6 @@
+using BookReader.Api.BookReaderHttpClient.Interfaces;
+using BookReader.Api.BookReaderHttpClient.BaseImplementation.Implementations;
 using BookReader.AutoMapperProfiles;
-using BookReader.Api.Repository.Interfaces;
-using BookReader.Api.Repository.RepositoryDb;
-using BookReader.Api.Repository.RepositoryDb.Implementations;
-using Microsoft.EntityFrameworkCore;
 
 namespace BookReader
 {
@@ -14,13 +12,16 @@ namespace BookReader
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+            builder.Services.AddHttpClient<IBookReaderHttpClient, BookReaderHttpClient>
+                (cfg => cfg.BaseAddress = new Uri("https://localhost:7222"));
+            /*
             builder.Services.AddScoped<IAuthorRepository, AuthorRepository>();
             builder.Services.AddScoped<IBookRepository, BookRepository>();
             builder.Services.AddScoped<IPageRepository, PageRepository>();
             builder.Services.AddDbContext<RepositoryDbContext>(opts => 
                 opts.UseSqlite(builder.Configuration.GetConnectionString("Default")));
+            */
             builder.Services.AddAutoMapper(cfg => cfg.AddProfile<RepositoryViewModelProfile>());
-
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.

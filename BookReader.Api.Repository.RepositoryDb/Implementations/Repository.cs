@@ -24,7 +24,7 @@ namespace BookReader.Api.Repository.RepositoryDb.Implementations
         public async Task<TEntity> Create(TEntity entity, CancellationToken cancellationToken = default)
         {
             TEntity result;
-
+            
             try
             {
                 _logger.LogTrace($"Adding entity ${entity}.");

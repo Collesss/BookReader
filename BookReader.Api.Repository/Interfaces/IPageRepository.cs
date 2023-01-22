@@ -5,5 +5,6 @@ namespace BookReader.Api.Repository.Interfaces
 {
     public interface IPageRepository : IRepository<PageEntity, PageEntityKey>
     {
+        Task<IEnumerable<PageEntity>> GetAllPagesBook(int bookId, CancellationToken cancellationToken = default);
     }
 }

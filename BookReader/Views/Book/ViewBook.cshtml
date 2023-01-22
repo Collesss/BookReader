@@ -1,6 +1,8 @@
 ﻿@using BookReader.Models.Book;
 @model ViewBookViewModel
 
-@Html.DisplayForModel()
-
+<div>@Model.Name</div>
+<div>@Model.CreatedDate.ToShortDateString()</div>
+<div>@Model.Description</div>
 <a asp-controller="Author" asp-action="ViewAuthor" asp-route-id="@Model.AuthorId">Author</a>
+<a asp-controller="Page" asp-action="ViewPage" asp-route-bookId="@Model.Id" asp-route-number="1">Read</a>

@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using BookReader.Api.Dto.Author.Response;
 using BookReader.Api.Dto.Book.Response;
+using BookReader.Api.Dto.Page.Response;
 using BookReader.Api.Repository.Entities;
 
 namespace BookReader.Api.AutoMapperProfiles
@@ -12,6 +13,8 @@ namespace BookReader.Api.AutoMapperProfiles
             CreateMap<AuthorEntity, AuthorResponseDto>();
 
             CreateMap<BookEntity, BookResponseDto>();
+
+            CreateMap<PageEntity, PageResponseDto>();
         }
     }
 }

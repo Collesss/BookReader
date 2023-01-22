@@ -1,7 +1,10 @@
 ﻿using AutoMapper;
-using BookReader.Api.Repository.Entities;
+using BookReader.Api.Dto.Author.Response;
+using BookReader.Api.Dto.Book.Response;
+using BookReader.Api.Dto.Page.Response;
 using BookReader.Models.Author;
 using BookReader.Models.Book;
+using BookReader.Models.Page;
 
 namespace BookReader.AutoMapperProfiles
 {
@@ -9,10 +12,12 @@ namespace BookReader.AutoMapperProfiles
     {
         public RepositoryViewModelProfile() 
         {
-            CreateMap<BookEntity, ViewBookViewModel>();
-            CreateMap<BookEntity, BookViewModel>();
+            CreateMap<AuthorResponseDto, ViewAuthorViewModel>();
 
-            CreateMap<AuthorEntity, ViewAuthorViewModel>();
+            CreateMap<BookResponseDto, BookViewModel>();
+            CreateMap<BookResponseDto, ViewBookViewModel>();
+
+            CreateMap<PageResponseDto, ViewPageViewModel>();
         }
     }
 }

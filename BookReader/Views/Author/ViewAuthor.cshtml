@@ -1,4 +1,6 @@
 ﻿@using BookReader.Models.Author;
 @model ViewAuthorViewModel
 
-@Html.DisplayForModel()
+<div>@Model.FullName</div>
+<div>@Model.Birthday.ToShortDateString()</div>
+<div>@Model.AboutAuthor</div>

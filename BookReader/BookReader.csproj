@@ -13,8 +13,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\BookReader.Api.Repository.RepositoryDb\BookReader.Api.Repository.RepositoryDb.csproj" />
-    <ProjectReference Include="..\BookReader.Api.Repository\BookReader.Api.Repository.csproj" />
+    <ProjectReference Include="..\BookReader.Api.BookReaderHttpClient.BaseImplementation\BookReader.Api.BookReaderHttpClient.BaseImplementation.csproj" />
+    <ProjectReference Include="..\BookReader.Api.BookReaderHttpClient\BookReader.Api.BookReaderHttpClient.csproj" />
   </ItemGroup>
 
 </Project>

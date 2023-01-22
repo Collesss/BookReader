@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using BookReader.Api.Dto.Author.Request;
 using BookReader.Api.Dto.Author.Response;
 using BookReader.Api.Repository.Entities;
 using BookReader.Api.Repository.Exceptions;
@@ -66,6 +67,29 @@ namespace BookReader.Api.Controllers
             {
                 _logger.LogError(e, $"Error get author with id: {id}.");
                 return StatusCode(StatusCodes.Status500InternalServerError, $"InternalServerError get author with id: {id}.");
+            }
+        }
+
+        public async Task<ActionResult<AuthorResponseDto>> AddAuthor(CreateAuthorRequestDto createAuthor, CancellationToken cancellationToken)
+        {
+            try
+            {
+                AuthorEntity createAuthorEntity = _mapper.Map<CreateAuthorRequestDto, AuthorEntity>(createAuthor);
+
+                AuthorEntity createdauthorEntity = await _authorRepository.Create(createAuthorEntity, cancellationToken);
+
+                AuthorResponseDto authorResponseDto = _mapper.Map<AuthorEntity, AuthorResponseDto>(createdauthorEntity);
+
+                return Ok(authorResponseDto);
+            }
+            catch (OperationCanceledException)
+            {
+                throw;
+            }
+            catch (RepositoryException e)
+            {
+                _logger.LogError(e, "Error create author @{CreateAuthorRequestDto}.", createAuthor);
+                return BadRequest(createAuthor);
             }
         }
     }
